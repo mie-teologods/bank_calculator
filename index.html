@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CALCULATOR</title>
+  <link rel="icon" type="image/png" href="calculator.png">
+  <link href="https//fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylezheet">
+  <link href="main.css" rel="stylesheet">
+</head>
+<body>
+  <div>
+    <form name="formcalc">
+      <center>
+        <h4>Loan Bank Processor Assessment Calculator</h4>
+      </center>  
+      <label>Basic No. Salary</label>
+      <input type="number" id="BasicNoSalary">
+      <br>      
+      <label>Annual Net Pay</label>
+      <input type="number" id="AnnualNetPay">
+      <br>
+      <label>Particulars Loans</label>
+      <input type="number" id="ParticularsLoans">
+      <br>
+      <label>MonthlyStallment</label>
+      <input type="number" id="Monthstallment">
+      <br>
+      <label>Monthly Amortization</label>
+      <input type="number" id="MoAmortization">
+      <br>
+      <button type="button" onclick="calculate()">Calculate</button>
+      <button type="button" onclick="reset()">Reset</button>
+      <br>
+      <label>Total Net</label>
+      <input type="number" id="TotalNet">
+    </form>
+  </div>
+
+  <script>
+    function calculate() {
+      var BasicNoSalary = parseFloat(document.getElementById("BasicNoSalary").value) || 0;
+      var AnnualNetPay = parseFloat(document.getElementById("AnnualNetPay").value) || 0;
+      var ParticularsLoans = parseFloat(document.getElementById("ParticularsLoans").value) || 0;
+      var Monthstallment = parseFloat(document.getElementById("Monthstallment").value) || 0;
+      var MoAmortization = parseFloat(document.getElementById("MoAmortization").value) || 0;
+      
+      var TotalNet = BasicNoSalary + AnnualNetPay + ParticularsLoans + Monthstallment + MoAmortization;
+      
+      if (!isNaN(TotalNet)) {
+        document.getElementById("TotalNet").value = TotalNet;
+      }
+    }
+    
+    function reset() {
+      document.getElementById("BasicNoSalary").value = "";
+      document.getElementById("AnnualNetPay").value = "";
+      document.getElementById("ParticularsLoans").value = "";
+      document.getElementById("Monthstallment").value = "";
+      document.getElementById("MoAmortization").value = "";
+      document.getElementById("TotalNet").value = "";
+    }
+  </script>  
+</body>
+</html>
